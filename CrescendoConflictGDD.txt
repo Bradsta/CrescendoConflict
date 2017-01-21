@@ -1,0 +1,50 @@
+CRESCENDO CONFLICT GDD
+
+-Players control Musical instraments duealing in a stage
+    -may move up-down-left-right in a 2D top-down arena
+        ->may only move freely in "stage" area
+            -open rectangle in middle of stage
+        ->may NOT move into "audiance" area
+            -a larger rectangle around the stage 
+    -may shoot musical waves in any of 360 degrees
+        -always fire "forward" relative to character position
+
+-Waves
+    -move in a straing line until conlision
+    -grow linearly with time
+    -on colsion with:
+        -door (predetermined parts of the outer edge of the audiance)
+            -cease to exist
+        -wall 
+            ->bounce
+        -other wave
+            ->bounce
+        -player character
+            -trave through undisterbed
+            -deal a fixed amount of damage per second passing through player
+     NOTE: waves only colider with forward edge (exempli gratia, if a player would enter the trail of a wave from the side, they do not take damage)
+    
+NOTE: players are aware of the positions of doors due to light streaming in accross the audiance
+NOTE: it is important that the ratio of the audiance rectangle be different from the ratio of the stage rectangle, so that the waves bounce desirably.
+
+-victory: a player looses the game when they loose all their health
+    NOTE: player should have sufficient health to survive exactly 4 hits
+
+The width and height of the audiance should each be roughly 6.5 times the width and height of the stage
+The wave should increase in size by 1/4 its origional size in the time it takes it to cross the stage
+
+===>> MAGIC NUMBERS: (Approx ratio game space units : pixels is 1 : 64) <<===
+Stage should be 10 by 10 game space units
+Character should be 1 by 1 game space units
+Audiance should be 80 game space units by 60 game space units
+Wave should travel 5 game space units / second
+Wave should increase size 1 8th of a game unity / second #NOTE: we may want this to grow exponentially in the end
+Wave should start at 1 game unit wide
+
+FUTURE IDEAS:
+Different types of waves:
+    -dif Growth rate
+    -dif Damage
+    -dif Speed
+    -dif Starting size
+More interesting arena's than rectangle
