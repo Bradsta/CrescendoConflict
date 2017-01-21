@@ -15,12 +15,11 @@ MusicPlayer options:
 
 public class MusicPlayer : MonoBehaviour {
 
-	public int numAudioSources = 2;
-	public MusicTrack track;
 	public float volume = 1.0F;
 	public double startDelay = 0.0F;
 	public bool startOnInit = true;
 
+	private MusicTrack track;
 	private AudioSource[] audioSources;
 	private float currentVolume = 1.0F;
 	private double nextEventTime;
@@ -29,7 +28,7 @@ public class MusicPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		audioSources = new AudioSource[numAudioSources];
+		audioSources = new AudioSource[2];
 		for (int i = 0; i < audioSources.Length; ++i) {
 			GameObject child = new GameObject("MusicPlayer");
 			child.transform.parent = gameObject.transform;
