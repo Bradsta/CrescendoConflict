@@ -15,12 +15,13 @@ public class WaveMovement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
 
-        direction = (Vector2) transform.up * -1;
+        direction = (Vector2)transform.up * -1;
     }
 
     void FixedUpdate()
     {
         transform.localScale += new Vector3(0.001f, 0.001f, 1);
+
         rb2d.MovePosition(rb2d.position + (direction * Speed * Time.fixedDeltaTime));
     }
 
@@ -28,6 +29,7 @@ public class WaveMovement : MonoBehaviour
     {
         Vector2 reflection = Vector2.Reflect(direction, coll.contacts[0].normal);
 
+        transform.up = -reflection; //Rotate wave
         direction = reflection;
     }
 }
