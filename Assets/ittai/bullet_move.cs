@@ -15,6 +15,6 @@ public class bullet_move : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        rb2d.MovePosition(new Vector2(rb2d.position.x + 3 *gun.transform.up* Time.fixedDeltaTime, rb2d.position.y + 3  * Time.fixedDeltaTime));
+//        rb2d.MovePosition(new Vector2(rb2d.position.x + 3 *gun.transform.up* Time.fixedDeltaTime, rb2d.position.y + 3  * Time.fixedDeltaTime));
 	}
 }
