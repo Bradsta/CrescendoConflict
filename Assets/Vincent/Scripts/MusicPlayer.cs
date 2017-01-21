@@ -8,16 +8,16 @@ Music Player object so that Background Music 1 is a child of Music Player.
 
 MusicPlayer options:
 -Volume: the volume to play the music at.
--Start Delay: after MusicPlayer has started, how many seconds to wait before loading the first AudioClip.
--Start On Init: when checked, MusicPlayer calls its start() function immediately upon creation. 
-	when unchecked, MusicPlayer does not start until the start() function is explicitly called.
+-Start Delay: after MusicPlayer has StartMusiced, how many seconds to wait before loading the first AudioClip.
+-Start On Init: when checked, MusicPlayer calls its StartMusic() function immediately upon creation. 
+	when unchecked, MusicPlayer does not StartMusic until the StartMusic() function is explicitly called.
 */
 
 public class MusicPlayer : MonoBehaviour {
 
-	public float volume = 1.0F;
-	public double startDelay = 0.0F;
-	public bool startOnInit = true;
+	public float Volume = 1.0F;
+	public double StartMusicDelay = 0.0F;
+	public bool StartMusicOnInit = true;
 
 	private MusicTrack track;
 	private AudioSource[] audioSources;
@@ -30,15 +30,15 @@ public class MusicPlayer : MonoBehaviour {
 	void Start () {
 		audioSources = new AudioSource[2];
 		for (int i = 0; i < audioSources.Length; ++i) {
-			GameObject child = new GameObject("MusicPlayer");
+			GameObject child = new GameObject("Audio Source");
 			child.transform.parent = gameObject.transform;
 			audioSources[i] = child.AddComponent<AudioSource>();
 		}
 
 		track = GetComponentInChildren<MusicTrack>();
 
-		if (startOnInit) {
-			start();
+		if (StartMusicOnInit) {
+			StartMusic();
 		}
 	}
 	
@@ -50,37 +50,37 @@ public class MusicPlayer : MonoBehaviour {
 		double time = AudioSettings.dspTime;
 
 		if (time + 1.0F > nextEventTime) {
-			MusicClip musicClip = track.getNextClip();
-			audioSources[flip].clip = musicClip.clip;
+			MusicClip musicClip = track.GetNextClip();
+			audioSources[flip].clip = musicClip.Clip;
 			audioSources[flip].PlayScheduled(nextEventTime);
-			nextEventTime += musicClip.lengthInSeconds;
+			nextEventTime += musicClip.LengthInSeconds;
 			flip = 1 - flip;
 		}
 	}
 
-	public void start() {
+	public void StartMusic() {
 		isPlaying = true;
-		nextEventTime = AudioSettings.dspTime + startDelay;
+		nextEventTime = AudioSettings.dspTime + StartMusicDelay;
 		Debug.Log("MusicPlayer started");
 	}
 
-	public void stop() {
+	public void StopMusic() {
 		isPlaying = false;
-		fadeOutAndStop(0.06f); // fadeout super quick so that the audio doesn't pop when stopped
+		FadeOutAndStop(0.06f); // fadeout super quick so that the audio doesn't pop when stopped
 		Debug.Log("MusicPlayer stopped");
 	}
 
-	public void resetVolume() {
+	public void ResetVolume() {
 		foreach (var source in audioSources) {
-			source.volume = volume;
+			source.volume = Volume;
 		}
 	}
 
-	public void fadeOut(float lengthInSeconds = 1.0F, float interval = 0.05F) {
+	public void FadeOut(float lengthInSeconds = 1.0F, float interval = 0.05F) {
 		StartCoroutine(fadeOutCoroutine(lengthInSeconds, interval));
 	}
 
-	public void fadeOutAndStop(float lengthInSeconds = 1.0F, float interval = 0.05F) {
+	public void FadeOutAndStop(float lengthInSeconds = 1.0F, float interval = 0.05F) {
 		StartCoroutine(fadeOutAndStopCoroutine(lengthInSeconds, interval));
 	}
 
@@ -105,6 +105,6 @@ public class MusicPlayer : MonoBehaviour {
 		foreach (var source in audioSources) {
 			source.Stop();
 		}
-		resetVolume();
+		ResetVolume();
 	}
 }

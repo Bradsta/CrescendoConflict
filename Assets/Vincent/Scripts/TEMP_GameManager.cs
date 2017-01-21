@@ -21,10 +21,10 @@ public class TEMP_GameManager : MonoBehaviour {
 	}
 
 	private IEnumerator TEST_playSfx() {
-		sfxPlayer.playSoundEffect("cello damaged 1");
+		sfxPlayer.PlaySoundEffect("cello damaged 1");
 		yield return new WaitForSeconds(1.0f);
-		sfxPlayer.playSoundEffect("cello select 1");
+		sfxPlayer.PlaySoundEffect("cello select 1");
 		yield return new WaitForSeconds(1.0f);
-		sfxPlayer.playSoundEffect("cello shoot wave 1");
+		sfxPlayer.PlaySoundEffect("cello shoot wave 1");
 	}
 }

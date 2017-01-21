@@ -14,7 +14,7 @@ public class MusicTrack : MonoBehaviour {
 		clips = GetComponentsInChildren<MusicClip>();
 	}
 
-	public MusicClip getNextClip() {
+	public MusicClip GetNextClip() {
 		if (!started) {	
 			currentClip = 0;
 			started = true;
