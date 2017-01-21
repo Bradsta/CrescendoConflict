@@ -32,7 +32,7 @@ public class Player : MonoBehaviour {
         }
         else
         {
-            player.MovePosition(new Vector2(player.position.x + Speed * directionx * Time.fixedDeltaTime, player.position.y + Speed * directiony * Time.fixedDeltaTime));
+            player.MovePosition(new Vector2(transform.position.x + Speed * directionx * Time.fixedDeltaTime, transform.position.y + Speed * directiony * Time.fixedDeltaTime));
 
             if (state == 0)
             {
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour {
 
     public void Rotate(int rotate_speed)
     {
-        reticle.RotateAround(player.transform.position, player.transform.forward, rotate_speed * 20 * Time.deltaTime);
+        reticle.RotateAround(transform.position, transform.forward, rotate_speed * 20 * Time.deltaTime);
     }
 
     public void Shoot()
