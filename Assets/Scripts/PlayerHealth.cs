@@ -5,20 +5,20 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
 
-    public int health = 100;
-    public Text healthIndicator;
-
-	// Use this for initialization
-	void Start () {
-        healthIndicator.text = health.ToString();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        healthIndicator.text = health.ToString();
+    int health = 100;
+    public int Health {
+        get {
+            return health;
+        }
     }
 
-    void TakeDamage (int amount)
+    public bool IsDead {
+        get {
+            return health <= 0;
+        }
+    }
+
+    public void TakeDamage (int amount)
     {
         health -= amount;
     }

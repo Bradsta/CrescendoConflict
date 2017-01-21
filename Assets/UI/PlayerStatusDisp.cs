@@ -15,9 +15,11 @@ public class PlayerStatusDisp : MonoBehaviour {
     private Image color;
     private List<Image> health; //notes that display health
 
+    PlayerHealth player; //ref to the health represented
+
     private int healthDisplayed; //tracks the amount of health being displayed
 
-    public void Init(Sprite emptyHealth, GameObject healthPrefab, Sprite sprite, Color color, int health) {
+    public void Init(Sprite emptyHealth, GameObject healthPrefab, Sprite sprite, Color color, int health, PlayerHealth player) {
         //pseudo constructor; to be called on object initialization
         //init objects
         image = transform.Find("Image").GetComponent<Image>();
@@ -35,11 +37,14 @@ public class PlayerStatusDisp : MonoBehaviour {
             go.transform.localPosition = pos + new Vector2(0, Random.Range(-8, 8));
             this.health.Add(go.GetComponent<Image>());
             pos += healthPosStep;
-        } 
+        }
+        healthDisplayed = health;
     }
 
-    public void DispHealth (float newHealth) {
-        //reduces heath displayed to given value
-    }    
+    private void Update() {
+        for(; healthDisplayed > 1+(health.Count*player.Health/100); --healthDisplayed) {
+            health[healthDisplayed].sprite = emptyHealth; 
+        }
+    }
 
 }

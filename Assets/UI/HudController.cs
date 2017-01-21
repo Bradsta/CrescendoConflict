@@ -17,7 +17,8 @@ public class HudController : MonoBehaviour {
         //load prefabs
         Vector2 pos = dispBasePos;
         int pc = GameVars.PlayerCount;
-        for(int i = 0; i < pc; ++i) {
+        GameManager gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        for (int i = 0; i < pc; ++i) {
             //see Player Status Disp for comments, because its the same $T^)# algorithm
             Debug.Log(i);
             GameObject go = Instantiate(psdPrefab);
@@ -27,7 +28,8 @@ public class HudController : MonoBehaviour {
                                                                healthPrefab,
                                                                portraits[(int)GameVars.Avitars[i]],
                                                                GameVars.Colors[i], 
-                                                               4); //NUMBER OF NOTES HARDCODED HERE
+                                                               4, //NUMBER OF NOTES HARDCODED HERE
+                                                               gm.players[i].GetComponent<PlayerHealth>()); 
             pos += dispPosStep;
         }
 		
