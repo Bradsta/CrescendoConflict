@@ -30,7 +30,7 @@ public class inputHandler : MonoBehaviour {
     }
     public void shoot()
     {
-        Instantiate(bullet, new Vector2(gun.position.x,gun.position.y),Quaternion.identity);
+        Instantiate(bullet, new Vector2(gun.position.x,gun.position.y),gun.transform.rotation);
 
     }
 }
