@@ -26,7 +26,25 @@ CRESCENDO CONFLICT GDD
     
 NOTE: players are aware of the positions of doors due to light streaming in accross the audiance
 NOTE: it is important that the ratio of the audiance rectangle be different from the ratio of the stage rectangle, so that the waves bounce desirably.
+
 -victory: a player looses the game when they loose all their health
+    NOTE: player should have sufficient health to survive exactly 4 hits
 
 The width and height of the audiance should each be roughly 6.5 times the width and height of the stage
 The wave should increase in size by 1/4 its origional size in the time it takes it to cross the stage
+
+===>> MAGIC NUMBERS: (Approx ratio game space units : pixels is 1 : 64) <<===
+Stage should be 10 by 10 game space units
+Character should be 1 by 1 game space units
+Audiance should be 80 game space units by 60 game space units
+Wave should travel 5 game space units / second
+Wave should increase size 1 8th of a game unity / second #NOTE: we may want this to grow exponentially in the end
+Wave should start at 1 game unit wide
+
+FUTURE IDEAS:
+Different types of waves:
+    -dif Growth rate
+    -dif Damage
+    -dif Speed
+    -dif Starting size
+More interesting arena's than rectangle
