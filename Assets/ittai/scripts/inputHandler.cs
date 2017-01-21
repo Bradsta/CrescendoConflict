@@ -6,6 +6,7 @@ public class inputHandler : MonoBehaviour {
 
     Rigidbody2D player;
     Rigidbody2D gun;
+    public GameObject bullet;
 
     public Vector2 velocity;
 
@@ -27,6 +28,10 @@ public class inputHandler : MonoBehaviour {
         gun.GetComponent<Rigidbody2D>().MoveRotation(gun.GetComponent<Rigidbody2D>().rotation+ rotate_speed);
        // gun.GetComponent<Rigidbody2D>().
     }
- 
+    public void shoot()
+    {
+        Instantiate(bullet, new Vector2(gun.position.x,gun.position.y),gun.transform.rotation);
+
+    }
 }
 

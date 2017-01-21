@@ -1,6 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* 
+HOW TO USE:
+Drag the Music Player into your scene, then drag the Background Music 1 prefab into the 
+Music Player object so that Background Music 1 is a child of Music Player.
+
+MusicPlayer options:
+-Volume: the volume to play the music at.
+-Start Delay: after MusicPlayer has started, how many seconds to wait before loading the first AudioClip.
+-Start On Init: when checked, MusicPlayer calls its start() function immediately upon creation. 
+	when unchecked, MusicPlayer does not start until the start() function is explicitly called.
+*/
+
 public class MusicPlayer : MonoBehaviour {
 
 	public int numAudioSources = 2;
