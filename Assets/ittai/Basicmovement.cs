@@ -6,26 +6,27 @@ public class Basicmovement : MonoBehaviour {
 
     Rigidbody2D player;
     public Vector2 velocity;
+    public float rotate_speed;
     // Use this for initialization
     void Start () {
         player = gameObject.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 
-        if (Input.GetButton("Horizontal"))
+        if (Input.GetButton("Horizontal")|| Input.GetButton("Vertical"))
         {
-            player.MovePosition( new Vector2 movement=Vector2( player.position + velocity.x* Input.GetAxis("Horizontal")* Time.fixedDeltaTime));
+
+            player.MovePosition(new Vector2(player.position.x + velocity.x *Input.GetAxisRaw("Horizontal") * Time.fixedDeltaTime,
+                                    player.position.y + velocity.y * Input.GetAxisRaw("Vertical") * Time.fixedDeltaTime));
 
         }
 
-        if (Input.GetButton("Vertical"))
+        if (Input.GetKey("o"))
         {
-            player.MovePosition(player.positio+ velocity.y* Input.GetAxis("Vertical") * Time.fixedDeltaTime);
-
+            player.MoveRotation(player.rotation+rotate_speed*Time.deltaTime);
         }
-
     }
 }
