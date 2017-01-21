@@ -5,11 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     
     public GameObject Wave;
-    public float Speed = 1;
+    [Tooltip("In units per second. Default is 1.28 #MagicNumber.")]
+    public float Speed = 1.28f;
 
     private Animator animator;
     private Rigidbody2D player;
     private Transform reticle;
+    private float lastShot = -1;
 
     private byte state = 0; //Idle
 
@@ -17,7 +19,7 @@ public class Player : MonoBehaviour {
         player = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        reticle = transform.GetChild(0);
+        reticle = transform.Find("Reticle");
     }
 
     public void move(float directionx,float directiony)
@@ -49,8 +51,12 @@ public class Player : MonoBehaviour {
 
     public void Shoot()
     {
-        //Instantiate(bullet, new Vector2(gun.position.x,gun.position.y), gun.transform.localRotation);
-
+        if (lastShot == -1 || (Time.time - lastShot) > 1)
+        {
+            Instantiate(Wave, reticle.position, Quaternion.Euler(0, 0, reticle.rotation.eulerAngles.z));
+            reticle.GetComponent<Animator>().Play("Charging", 0, 0);
+            lastShot = Time.time;
+        }
     }
 }
 

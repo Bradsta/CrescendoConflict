@@ -1,9 +1,12 @@
 fileFormatVersion: 2
 guid: 1d915650ed215c149869a55426d6c6ec
-timeCreated: 1485029322
+timeCreated: 1485035341
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: wave_dot_wav_0
+    21300002: wave_dot_wav_1
+    21300004: wave_dot_wav_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -68,7 +71,46 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: wave_dot_wav_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 30
+        width: 123
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wave_dot_wav_1
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 32
+        width: 116
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: wave_dot_wav_2
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 35
+        width: 120
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

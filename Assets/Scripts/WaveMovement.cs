@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class WaveMovement : MonoBehaviour
 {
-    public float Rotation = 0;
-    public float Speed = 0.1f;
+    [Tooltip("In units per second, default is 6.40 #MagicNumber.")]
+    public float Speed = 6.40f;
+    [Tooltip("In units per second, default is 0.0125 #MagicNumber.")]
+    public float ScaleSpeed = 0.0125f;
 
     private Vector2 direction;
 
@@ -15,12 +17,12 @@ public class WaveMovement : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
 
-        direction = (Vector2)transform.up * -1;
+        direction = transform.up;
     }
 
     void FixedUpdate()
     {
-        transform.localScale += new Vector3(0.001f, 0.001f, 1);
+        //transform.localScale += new Vector3(ScaleSpeed, ScaleSpeed, 1);
 
         rb2d.MovePosition(rb2d.position + (direction * Speed * Time.fixedDeltaTime));
     }
@@ -29,7 +31,7 @@ public class WaveMovement : MonoBehaviour
     {
         Vector2 reflection = Vector2.Reflect(direction, coll.contacts[0].normal);
 
-        transform.up = -reflection; //Rotate wave
+        transform.up = reflection; //Rotate wave
         direction = reflection;
     }
 }
