@@ -32,7 +32,7 @@ public class SfxPlayer : MonoBehaviour {
 		}
 	}
 
-	public void playSoundEffect(string name, float volume = 1.0f) {
+	public void PlaySoundEffect(string name, float volume = 1.0f) {
 		audioSource.PlayOneShot(soundEffectsDict[name], volume);
 	}
 }

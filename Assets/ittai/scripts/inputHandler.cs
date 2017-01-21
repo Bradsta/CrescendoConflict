@@ -25,12 +25,13 @@ public class inputHandler : MonoBehaviour {
 
     public void Rotate(int rotate_speed)
     {
-        gun.GetComponent<Rigidbody2D>().MoveRotation(gun.GetComponent<Rigidbody2D>().rotation+ rotate_speed);
+        gun.transform.RotateAround(player.transform.position, player.transform.forward, rotate_speed*20 * Time.deltaTime);
+        //gun.GetComponent<Rigidbody2D>().MoveRotation(gun.GetComponent<Rigidbody2D>().rotation+ rotate_speed);
        // gun.GetComponent<Rigidbody2D>().
     }
     public void shoot()
     {
-        Instantiate(bullet, new Vector2(gun.position.x,gun.position.y),gun.transform.rotation);
+        Instantiate(bullet, new Vector2(gun.position.x,gun.position.y), gun.transform.localRotation);
 
     }
 }

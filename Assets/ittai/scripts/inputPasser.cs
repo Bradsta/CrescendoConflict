@@ -25,5 +25,7 @@ public class inputPasser : MonoBehaviour {
             gameObject.GetComponent<inputHandler>().shoot();
         }
 
+        print(Input.GetAxis("rotationx")+","+Input.GetAxis("rotationy"));
+
     }
 }

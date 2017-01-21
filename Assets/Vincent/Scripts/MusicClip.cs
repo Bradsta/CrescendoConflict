@@ -2,6 +2,6 @@
 using System.Collections;
 
 public class MusicClip : MonoBehaviour {
-	public AudioClip clip;
-	public double lengthInSeconds;
+	public AudioClip Clip;
+	public double LengthInSeconds;
 }
