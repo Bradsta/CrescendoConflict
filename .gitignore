@@ -29,5 +29,10 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-# Ignore version differences (because Unity is dumb and slow with Linux builds
+# Ignore version differences (latest Linux build is only at 5.4)
 /ProjectSettings/ProjectVersion.txt
+
+# Project settings that Vincent's Linux build keeps changing (I hope this doesn't break anything!!!)
+/ProjectSettings/GraphicsSettings.asset
+/ProjectSettings/ProjectSettings.asset
+/ProjectSettings/UnityAdsSettings.asset
