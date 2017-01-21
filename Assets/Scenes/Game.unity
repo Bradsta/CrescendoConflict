@@ -217,6 +217,72 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c06d2c50bb71feb42ba8d45509e7406b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &683698686 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1578864536322276, guid: c06d2c50bb71feb42ba8d45509e7406b,
+    type: 2}
+  m_PrefabInternal: {fileID: 683698685}
+--- !u!114 &683698687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 683698686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368bb9b4174b8114fb9fcea4cc1c5dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  velocity: {x: 1, y: 1}
+--- !u!50 &683698688
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 683698686}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &683698691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 683698686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a487d4bf2c7a9e04e8f068f535c9e96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotate_speed: 0
+  playerHorz: Horizontal
+  playerVert: Vertical
+--- !u!61 &683698692
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 683698686}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.04641533, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.71457666, y: 1.28}
 --- !u!1 &726179114
 GameObject:
   m_ObjectHideFlags: 0
