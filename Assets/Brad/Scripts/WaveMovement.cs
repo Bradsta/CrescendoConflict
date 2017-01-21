@@ -20,13 +20,18 @@ public class WaveMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.localScale += new Vector3(0.001f, 0.001f, 1);
+        //transform.localScale += new Vector3(0.001f, 0.001f, 1);
+
         rb2d.MovePosition(rb2d.position + (direction * Speed * Time.fixedDeltaTime));
     }
 
     void OnCollisionEnter2D(Collision2D coll)
     {
         Vector2 reflection = Vector2.Reflect(direction, coll.contacts[0].normal);
+
+        float angle = Vector2.Angle(direction, reflection); //Need to figure out whether I add or subtract this value
+
+        //transform.rotation = Quaternion.Euler(0, 0, );
 
         direction = reflection;
     }
