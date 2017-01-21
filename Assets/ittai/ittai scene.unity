@@ -118,7 +118,7 @@ Transform:
   m_LocalScale: {x: -0.14, y: 0.1, z: 2.21}
   m_Children: []
   m_Father: {fileID: 562858133}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &376006625
 SpriteRenderer:
@@ -219,8 +219,8 @@ Transform:
   m_LocalPosition: {x: -0.49210218, y: -0.6889577, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
-  - {fileID: 376006624}
   - {fileID: 1426800921}
+  - {fileID: 376006624}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,7 +231,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562858131}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -255,11 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab3fa31d37fd4bc4092af83f434203c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotate_speed: 90
-  moveUp: w
-  moveDown: s
-  moveLeft: a
-  moveRight: d
+  rotate_speed: 3
+  playerHorz: Horizontal
+  playerVert: Vertical
 --- !u!114 &562858136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba028bedb8a5654ca9297612bcd68a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 1, y: 1}
+  velocity: {x: 3, y: 3}
 --- !u!1 &626707475
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +429,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1426800921}
   - component: {fileID: 1426800920}
+  - component: {fileID: 1426800922}
   m_Layer: 0
   m_Name: gun
   m_TagString: Untagged
@@ -484,5 +483,25 @@ Transform:
   m_LocalScale: {x: 0.54800004, y: 0.287, z: 1}
   m_Children: []
   m_Father: {fileID: 562858133}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1426800922
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1426800919}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
