@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputPasser : MonoBehaviour {
 
-    public int rotate_speed;
+    public int rotate_speed = 10;
     public string playerHorz; //for when we add second player, so like Horizontal2, to get the axis for the second player
     public string playerVert;
     // Use this for initialization

@@ -19,6 +19,6 @@ public class bullet_move : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate () {
-        rb2d.transform.Translate(rb2d.transform.right*Time.deltaTime);
+        rb2d.transform.position += rb2d.transform.right * Time.deltaTime * 3;
 	}
 }
