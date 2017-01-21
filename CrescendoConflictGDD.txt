@@ -1,0 +1,29 @@
+CRESCENDO CONFLICT GDD
+
+-Players control Musical instraments duealing in a stage
+    -may move up-down-left-right in a 2D top-down arena
+        ->may only move freely in "stage" area
+            -open rectangle in middle of stage
+        ->may NOT move into "audiance" area
+            -a larger rectangle around the stage 
+    -may shoot musical waves in any of 360 degrees
+        -always fire "forward" relative to character position
+
+-Waves
+    -move in a straing line until conlision
+    -grow linearly with time
+    -on colsion with:
+        -door (predetermined parts of the outer edge of the audiance)
+            -cease to exist
+        -wall 
+            ->bounce
+        -other wave
+            ->bounce
+        -player character
+            -trave through undisterbed
+            -deal a fixed amount of damage per second passing through player
+     NOTE: waves only colider with forward edge (exempli gratia, if a player would enter the trail of a wave from the side, they do not take damage)
+    
+NOTE: players are aware of the positions of doors due to light streaming in accross the audiance
+
+-victory: a player looses the game when they loose all their health
