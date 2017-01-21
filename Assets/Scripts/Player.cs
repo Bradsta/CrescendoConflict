@@ -48,7 +48,7 @@ public class Player : MonoBehaviour {
 
     public void Rotate(int rotate_speed)
     {
-        gun.transform.RotateAround(player.transform.position, player.transform.forward, rotate_speed*20 * Time.deltaTime);
+        gun.transform.RotateAround(player.transform.position, player.transform.forward, rotate_speed * 20 * Time.deltaTime);
         //gun.GetComponent<Rigidbody2D>().MoveRotation(gun.GetComponent<Rigidbody2D>().rotation+ rotate_speed);
        // gun.GetComponent<Rigidbody2D>().
     }
