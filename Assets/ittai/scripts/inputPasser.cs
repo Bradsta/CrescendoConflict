@@ -20,7 +20,10 @@ public class inputPasser : MonoBehaviour {
             gameObject.GetComponent<inputHandler>().Rotate(rotate_speed);
         if(Input.GetKey("p"))
             gameObject.GetComponent<inputHandler>().Rotate(rotate_speed*-1);
-
+        if (Input.GetButtonDown("Fire1"))
+        {
+            gameObject.GetComponent<inputHandler>().shoot();
+        }
 
     }
 }
