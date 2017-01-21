@@ -1,11 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+/*
+HOW TO USE:
+1. Drag the SfxPlayer prefab into the scene
+2. Adjust the soundEffects list size
+3. Drag the sound effects into the list
+
+To play a sound effect, call playSoundEffect() with the name of the AudioClip,
+optionally specifying a volume to play it at.
+*/
+
 public class SfxPlayer : MonoBehaviour {
 	public AudioClip[] soundEffects;
 
 	private AudioSource audioSource;
-	public Dictionary<string, AudioClip> soundEffectsDict;
+	private Dictionary<string, AudioClip> soundEffectsDict;
 
 	// Use this for initialization
 	void Start () {
@@ -13,14 +23,16 @@ public class SfxPlayer : MonoBehaviour {
 		child.transform.parent = gameObject.transform;
 		audioSource = child.AddComponent<AudioSource>();
 
+		soundEffectsDict = new Dictionary<string, AudioClip>();
+
 		// create dictionary from soundEffects
-		foreach (AudioClip clip in soundEffects) {
+		foreach (var clip in soundEffects) {
 			Debug.Log("adding " + clip.name + " to soundEffectsDict");
 			soundEffectsDict[clip.name] = clip;
 		}
 	}
 
-	void playSoundEffect(string name, float volume = 1.0f) {
+	public void playSoundEffect(string name, float volume = 1.0f) {
 		audioSource.PlayOneShot(soundEffectsDict[name], volume);
 	}
 }
