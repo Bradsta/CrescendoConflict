@@ -15,6 +15,7 @@ public class PlayerStatusDisp : MonoBehaviour {
     private Image color;
     private List<Image> health; //notes that display health
 
+    private int healthDisplayed; //tracks the amount of health being displayed
 
     public void Init(Sprite emptyHealth, GameObject healthPrefab, Sprite sprite, Color color, int health) {
         //pseudo constructor; to be called on object initialization
@@ -36,5 +37,9 @@ public class PlayerStatusDisp : MonoBehaviour {
             pos += healthPosStep;
         } 
     }
+
+    public void DispHealth (float newHealth) {
+        //reduces heath displayed to given value
+    }    
 
 }
