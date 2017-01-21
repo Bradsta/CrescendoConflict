@@ -24,8 +24,13 @@ public class inputPasser : MonoBehaviour {
         {
             gameObject.GetComponent<inputHandler>().shoot();
         }
+        if (Input.GetAxis("rotationx")!=0 || Input.GetAxis("rotationy")!=0)
+        {
+            float angle = Mathf.Atan2(Input.GetAxis("rotationx"), Input.GetAxis("rotationy")) * Mathf.Rad2Deg;
+            print(angle);
+            gameObject.GetComponent<inputHandler>().RotateStick(angle);
 
-        print(Input.GetAxis("rotationx")+","+Input.GetAxis("rotationy"));
+        }
 
     }
 }
