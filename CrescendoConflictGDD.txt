@@ -25,5 +25,5 @@ CRESCENDO CONFLICT GDD
      NOTE: waves only colider with forward edge (exempli gratia, if a player would enter the trail of a wave from the side, they do not take damage)
     
 NOTE: players are aware of the positions of doors due to light streaming in accross the audiance
-
+NOTE: it is important that the ratio of the audiance rectangle be different from the ratio of the stage rectangle, so that the waves bounce desirably.
 -victory: a player looses the game when they loose all their health
