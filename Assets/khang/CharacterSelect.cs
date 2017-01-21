@@ -21,19 +21,17 @@ public class CharacterSelect : MonoBehaviour {
     
     void ScrollUp()
     {
+        selectedCharacter--;
         //if it's about to hit less than 0, go back to the end
         if (selectedCharacter - 1 < 0)
             selectedCharacter = characterImages.Length - 1;
-        else
-            selectedCharacter--;
     }
 
     void ScrollDown()
     {
+        selectedCharacter++;
         //if it's about to be greater than the character list size, go back to the beginning
         if (selectedCharacter + 1 > characterImages.Length - 1)
             selectedCharacter = 0;
-        else
-            selectedCharacter++;
     }
 }
