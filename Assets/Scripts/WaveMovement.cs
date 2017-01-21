@@ -22,7 +22,7 @@ public class WaveMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        //transform.localScale += new Vector3(ScaleSpeed, ScaleSpeed, 1);
+        transform.localScale += new Vector3(ScaleSpeed, ScaleSpeed, 1);
 
         rb2d.MovePosition(rb2d.position + (direction * Speed * Time.fixedDeltaTime));
     }
@@ -31,7 +31,7 @@ public class WaveMovement : MonoBehaviour
     {
         Vector2 reflection = Vector2.Reflect(direction, coll.contacts[0].normal);
 
-        transform.up = reflection; //Rotate wave
+        transform.up = reflection;
         direction = reflection;
     }
 }
