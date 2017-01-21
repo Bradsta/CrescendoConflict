@@ -38,7 +38,7 @@ public class Player : MonoBehaviour {
             if (state == 0)
             {
                 state = 1; //Moving
-                animator.Play("Idle");
+                animator.Play("Walk");
             }
         }
 
