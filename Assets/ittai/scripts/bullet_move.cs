@@ -6,6 +6,7 @@ public class bullet_move : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		
 	}
 	
