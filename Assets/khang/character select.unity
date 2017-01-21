@@ -293,6 +293,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  selectedCharacter: 0
 --- !u!4 &402699375
 Transform:
   m_ObjectHideFlags: 0

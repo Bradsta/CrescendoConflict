@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour {
-    public List<Sprite> characterImages;
+    public Sprite[] characterImages;
     //need to map each player to 1 index in this (list? map?)
     //stores the index for which character the player has selected
     // var for storing the currently selected character
-
+    public int selectedCharacter = 0;
 	// Use this for initialization
 	void Start () {
 		//initialize player 1 or whichever players ready up
@@ -22,10 +22,18 @@ public class CharacterSelect : MonoBehaviour {
     void ScrollUp()
     {
         //if it's about to hit less than 0, go back to the end
+        if (selectedCharacter - 1 < 0)
+            selectedCharacter = characterImages.Length - 1;
+        else
+            selectedCharacter--;
     }
 
     void ScrollDown()
     {
         //if it's about to be greater than the character list size, go back to the beginning
+        if (selectedCharacter + 1 > characterImages.Length - 1)
+            selectedCharacter = 0;
+        else
+            selectedCharacter++;
     }
 }
