@@ -5,30 +5,33 @@ using UnityEngine.UI;
 
 public class PlayerStatusDisp : MonoBehaviour {
 
-    private static Image emptyHealth;
     //will also need to load full health if want to implement healing
 
-    private static GameObject healthPrefab;
-    private static Vector2 healthBasePos = new Vector2(67, -16);
-    private static Vector2 healthPosStep = new Vector2(32, 0);
+    private static Vector2 healthBasePos = new Vector2(60, -20);
+    private static Vector2 healthPosStep = new Vector2(24, 0);
 
-    Image image;
-    List<Image> health; //notes that display health
+    private Sprite emptyHealth;
+    private Image image;
+    private Image color;
+    private List<Image> health; //notes that display health
 
-    private void Start() {
-        //link objects
-        image = transform.Find("Image").GetComponent<Image>();
-    }
 
-    public void Init(Sprite sprite, int health) {
+    public void Init(Sprite emptyHealth, GameObject healthPrefab, Sprite sprite, Color color, int health) {
         //pseudo constructor; to be called on object initialization
+        //init objects
+        image = transform.Find("Image").GetComponent<Image>();
+        this.color = transform.Find("Color").GetComponent<Image>();
+        this.health = new List<Image>();
+        //image to disp empty health, obj to display (full) health, background image, number of health icons
         image.sprite = sprite;
-        //build health displa
+        //set BG color
+        this.color.color = color;
+        //build health display
         Vector2 pos = healthBasePos;
         for(int i = 0; i < health; ++i) {
             GameObject go = Instantiate(healthPrefab);
-            go.transform.parent = transform;
-            go.transform.position = pos + new Vector2(0, Random.Range(-8, 8));
+            go.transform.SetParent(transform);
+            go.transform.localPosition = pos + new Vector2(0, Random.Range(-8, 8));
             this.health.Add(go.GetComponent<Image>());
             pos += healthPosStep;
         } 
