@@ -15,6 +15,8 @@ public class PlayerStatusDisp : MonoBehaviour {
     private Image color;
     private List<Image> health; //notes that display health
 
+    private WaveAnimator waveAnimator; //to make the notes bounce
+
     PlayerHealth player; //ref to the health represented
 
     private int healthDisplayed; //tracks the amount of health being displayed
@@ -42,6 +44,9 @@ public class PlayerStatusDisp : MonoBehaviour {
 
         this.player = player;
         this.emptyHealth = emptyHealth;
+
+        waveAnimator = GetComponent<WaveAnimator>();
+        waveAnimator.Init(this.health);
     }
 
     int lastHealth = -1;
@@ -71,6 +76,7 @@ public class PlayerStatusDisp : MonoBehaviour {
 
             health[index].sprite = emptyHealth;
             lastHealth = player.health;
+            waveAnimator.Run();
         }
     }
 
