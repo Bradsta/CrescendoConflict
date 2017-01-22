@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (players.Count == 2)
+        {
+            Debug.Log("WOO");
+        }
     }
 
     // so that this can be called when you want to restart the game

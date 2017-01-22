@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bb15893a4a9ad4da8b0d4c3fa52c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClipOnHit: piano damaged 1
 --- !u!114 &114449745984498128
 MonoBehaviour:
   m_ObjectHideFlags: 1
