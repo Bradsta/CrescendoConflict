@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
@@ -47,16 +48,10 @@ public class MenuController : MonoBehaviour {
     }
 
     public void BeginGame() {
-        //code to begin the game
-        //load settings into GameVars
-        //TODO: make sure doesn't have problems being inactive
-        //settings.GetComponent<SettingsController>().UpdateSettings(); //requires settings controller on settings parent object
-        //TODO: go to the scene, once it exists
+        SceneManager.LoadScene("Character Select");
     }
 
     public void ExitGame() {
-        //exit the game
-        //Debug.Log("Quit the Game!");
         Application.Quit();
     }
     

@@ -12,6 +12,7 @@ public class CharacterSelect : MonoBehaviour {
 
     private bool scrolledDown = false;
     private bool scrolledUp = false;
+    private bool gameJamStrats = false;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,12 @@ public class CharacterSelect : MonoBehaviour {
 	}
 
     void Update() {
+        if (!gameJamStrats)
+        {
+            ScrollDown();
+            gameJamStrats = true;
+        }
+
         if (scrolledUp == false && Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) > 0.8f)
         {
             ScrollUp();

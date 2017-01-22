@@ -20,6 +20,7 @@ public class Player : MonoBehaviour {
 
     private SfxPlayer sfxPlayer;
     private CharacterInfo characterInfo;
+    private SpriteRenderer spriteRenderer;
 
     void Start() {
         sfxPlayer = FindObjectOfType<SfxPlayer>();
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour {
         reticle = src.Find("Reticle");
 
         characterInfo = gameObject.GetComponentInChildren<CharacterInfo>();
+        spriteRenderer = characterInfo.GetComponent<SpriteRenderer>();
         animator = characterInfo.gameObject.GetComponent<Animator>();
 
         switch (PlayerNumber)
@@ -62,6 +64,14 @@ public class Player : MonoBehaviour {
         }
         else
         {
+            if (directionx < 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else {
+                spriteRenderer.flipX = false;
+            }
+
             player.MovePosition(new Vector2(transform.position.x + Speed * directionx * Time.fixedDeltaTime, transform.position.y + Speed * directiony * Time.fixedDeltaTime));
 
             if (state == 0)
