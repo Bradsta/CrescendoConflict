@@ -33,6 +33,7 @@ public class MusicPlayer : MonoBehaviour {
 			GameObject child = new GameObject("Audio Source");
 			child.transform.parent = gameObject.transform;
 			audioSources[i] = child.AddComponent<AudioSource>();
+            audioSources[i].volume = Volume;
 		}
 
 		track = GetComponentInChildren<MusicTrack>();

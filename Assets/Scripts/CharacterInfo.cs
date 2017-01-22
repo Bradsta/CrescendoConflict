@@ -7,5 +7,6 @@ public class CharacterInfo : MonoBehaviour {
     public GameObject Wave;
     public string ShootClipName;
     public string ClipOnHit;
+    public int CharacterIndex;
 
 }

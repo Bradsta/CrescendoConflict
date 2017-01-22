@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -8,11 +9,22 @@ public class GameManager : MonoBehaviour {
 
     public GameObject[] characterPrefabs;
 
+    public VictoryDisp victoryPrefab;
+
     public List<GameObject> players;
     public GameObject[] spawnPositions;
 
+    private bool winner = false;
+    private bool playedVictory = false;
+
+    private SfxPlayer sfx;
+    private MusicPlayer music;
+
     void Awake()
     {
+        sfx = FindObjectOfType<SfxPlayer>();
+        music = FindObjectOfType<MusicPlayer>();
+
         StartGame();
     }
 
@@ -21,7 +33,21 @@ public class GameManager : MonoBehaviour {
     {
         if (players.Count == 2)
         {
-            Debug.Log("WOO");
+            victoryPrefab.gameObject.SetActive(true);
+            victoryPrefab.Init(players[1].GetComponent<Player>().characterInfo.CharacterIndex);
+            winner = true;
+        }
+
+        if (winner && !playedVictory)
+        {
+            music.StopMusic();
+            sfx.PlaySoundEffect("victory 1");
+            playedVictory = true;
+        }
+
+        if (winner && (Input.GetButtonDown("Fire_P1") || Input.GetButtonDown("Fire_P2")))
+        {
+            SceneManager.LoadScene("Main Menu");
         }
     }
 

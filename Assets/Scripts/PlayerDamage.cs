@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
+    public GameObject Explosion;
+
     private GameManager gameManager;
     private SfxPlayer sfx;
 
@@ -46,6 +48,14 @@ public class PlayerDamage : MonoBehaviour
                 {
                     gameManager.players.Remove(playerHealth.gameObject);
                     playerHealth.gameObject.SetActive(false);
+
+                    if (Explosion != null)
+                    {
+                        GameObject boom = Instantiate(Explosion);
+                        boom.transform.position = playerHealth.gameObject.transform.position;
+
+                        Destroy(boom, 1);
+                    }
                 }
             }
 

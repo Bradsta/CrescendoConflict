@@ -103,6 +103,7 @@ MonoBehaviour:
   Wave: {fileID: 1126420058254638, guid: 4ecc951a9f46ec548a0711ccb613dffa, type: 2}
   ShootClipName: piano shoot wave 1
   ClipOnHit: piano damaged 1
+  CharacterIndex: 2
 --- !u!212 &212341354034946078
 SpriteRenderer:
   m_ObjectHideFlags: 1
