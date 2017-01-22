@@ -103,6 +103,7 @@ MonoBehaviour:
   Wave: {fileID: 1516261018036720, guid: dc68bc6118b84a84099d603bcd0ab511, type: 2}
   ShootClipName: oboe shoot wave 1
   ClipOnHit: oboe damaged 1
+  CharacterIndex: 3
 --- !u!212 &212293567387784722
 SpriteRenderer:
   m_ObjectHideFlags: 1

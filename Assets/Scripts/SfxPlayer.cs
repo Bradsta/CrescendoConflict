@@ -12,7 +12,8 @@ optionally specifying a volume to play it at.
 */
 
 public class SfxPlayer : MonoBehaviour {
-	public AudioClip[] soundEffects;
+    public float Volume = 1.0f;
+    public AudioClip[] soundEffects;
 
 	private AudioSource audioSource;
 	private Dictionary<string, AudioClip> soundEffectsDict;
@@ -22,6 +23,7 @@ public class SfxPlayer : MonoBehaviour {
 		GameObject child = new GameObject("AudioSource");
 		child.transform.parent = gameObject.transform;
 		audioSource = child.AddComponent<AudioSource>();
+        audioSource.volume = Volume;
 
 		soundEffectsDict = new Dictionary<string, AudioClip>();
 

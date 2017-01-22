@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bb15893a4a9ad4da8b0d4c3fa52c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClipOnHit: cello damaged 1
+  Explosion: {fileID: 1686756137342636, guid: aacb9112d7c76ba4aaf4305255df6db2, type: 2}
 --- !u!114 &114443398188051370
 MonoBehaviour:
   m_ObjectHideFlags: 1
