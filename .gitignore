@@ -28,6 +28,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-
-# Ignore version differences (because Unity is dumb and slow with Linux builds
-/ProjectSettings/ProjectVersion.txt
