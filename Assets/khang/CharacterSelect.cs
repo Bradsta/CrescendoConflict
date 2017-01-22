@@ -19,7 +19,7 @@ public class CharacterSelect : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GameVars.PlayerCount = 0;
-        sfx = GameObject.FindObjectOfType<SfxPlayer>();
+        sfx = FindObjectOfType<SfxPlayer>();
         sfx.PlaySoundEffect("menu select boop 1");
 	}
 
@@ -30,20 +30,20 @@ public class CharacterSelect : MonoBehaviour {
             gameJamStrats = true;
         }
 
-        if (scrolledUp == false && Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) > 0.8f)
+        if (scrolledUp == false && (Input.GetAxisRaw("Vertical_P1") > 0.8f || Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) > 0.8f))
         {
             ScrollUp();
             scrolledUp = true;
-        } else if (scrolledDown == false && Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) < -0.8f)
+        } else if (scrolledDown == false && (Input.GetAxisRaw("Vertical_P1") < -0.8f || Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) < -0.8f))
         {
             ScrollDown();
             scrolledDown = true;
-        } else if (Input.GetButtonDown("Fire_P" + (GameVars.PlayerCount + 1)))
+        } else if (Input.GetButtonDown("Fire_P1") || Input.GetButtonDown("Fire_P" + (GameVars.PlayerCount + 1)))
         {
             Progress();
         }
 
-        if (Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) == 0)
+        if (Input.GetAxisRaw("Vertical_P1") == 0 || Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) == 0)
         {
             scrolledDown = false;
             scrolledUp = false;

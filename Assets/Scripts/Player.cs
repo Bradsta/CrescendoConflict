@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     [HideInInspector]
     public int playerNum = 1;
 
-    private float Speed = 2.56f;
+    private float Speed = 2.72f;
 
     private Animator animator;
     private Rigidbody2D player;
