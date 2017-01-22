@@ -32,7 +32,7 @@ public class WaveAnimator : MonoBehaviour {
     void Update() {
         if(state >= -1) { //if waving
             Debug.Log("WAVING "+state.ToString());
-            if (state > 0 && state == (int)state ) objs[(int)state].transform.position -= new Vector3(0, mag, 0); //if not first position, move down prev position
+            if (state >= 0 && state == (int)state ) objs[(int)state].transform.position += new Vector3(0, mag, 0); //if not first position, move down prev position
             state += 0.1f; //move to next position
             if (state < objs.Count && state == (int)state ) objs[(int)state].transform.position += new Vector3(0, mag, 0); //it are more positions, move up new position 
             else if (state >= objs.Count) state = -2; //if are not more positions, set to not waving
