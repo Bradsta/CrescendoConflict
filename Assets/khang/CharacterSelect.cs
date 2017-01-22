@@ -16,7 +16,7 @@ public class CharacterSelect : MonoBehaviour {
 	}
 
     void Update() {
-        
+        //get input from p1 keys
     }
  
     public void ScrollUp()

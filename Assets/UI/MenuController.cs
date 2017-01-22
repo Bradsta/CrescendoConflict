@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour {
     private GameObject menu;
     private GameObject credits;
     private GameObject settings;
+    private GameObject logo;
 
     void Start() {
         //plug in components
@@ -15,6 +16,7 @@ public class MenuController : MonoBehaviour {
         menu = GameObject.Find("MenuOptions");
         credits = GameObject.Find("Credits");
         settings = GameObject.Find("Settings");
+        logo = GameObject.Find("Logo");
         //set to default state
         GotoState(State.MAIN);
     }
@@ -34,17 +36,21 @@ public class MenuController : MonoBehaviour {
         //change settings to display the given state
         { //so that don't keep mScale around longer than need to
             float mScale = (state == State.MAIN) ? 1 : 0.75f;
-            menu.GetComponent<RectTransform>().localScale = new Vector3(mScale, mScale, 0);
+            int mPos = (state == State.MAIN) ? 0 : 256; 
+            RectTransform rt = menu.GetComponent<RectTransform>();
+            rt.localScale = new Vector3(mScale, mScale, 0);
+            rt.localPosition = new Vector3(mPos, rt.localPosition.y, 0);
         }
         credits.SetActive(state == State.CREDITS);
         settings.SetActive(state == State.SETTINGS);
+        logo.SetActive(state == State.MAIN);
     }
 
     public void BeginGame() {
         //code to begin the game
         //load settings into GameVars
         //TODO: make sure doesn't have problems being inactive
-        settings.GetComponent<SettingsController>().UpdateSettings(); //requires settings controller on settings parent object
+        //settings.GetComponent<SettingsController>().UpdateSettings(); //requires settings controller on settings parent object
         //TODO: go to the scene, once it exists
     }
     
