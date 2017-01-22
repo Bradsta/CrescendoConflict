@@ -44,14 +44,14 @@ InputManager:
     negativeButton: 
     positiveButton: space
     altNegativeButton: 
-    altPositiveButton: joystick 1 button 0
+    altPositiveButton: joystick 1 button 5
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
     type: 0
-    axis: 0
+    axis: 8
     joyNum: 1
   - serializedVersion: 3
     m_Name: Fire_P2
@@ -60,14 +60,14 @@ InputManager:
     negativeButton: 
     positiveButton: left shift
     altNegativeButton: 
-    altPositiveButton: joystick 2 button 0
+    altPositiveButton: joystick 2 button 5
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
     snap: 0
     invert: 0
     type: 0
-    axis: 0
+    axis: 8
     joyNum: 2
   - serializedVersion: 3
     m_Name: Mouse X
@@ -257,7 +257,7 @@ InputManager:
     dead: 0.5
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 0
     joyNum: 2
@@ -321,7 +321,7 @@ InputManager:
     dead: 0.2
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 3
     joyNum: 2

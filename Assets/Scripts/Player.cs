@@ -18,8 +18,10 @@ public class Player : MonoBehaviour {
 
     private byte state = 0; //Idle
 
+    [HideInInspector]
+    public CharacterInfo characterInfo;
+
     private SfxPlayer sfxPlayer;
-    private CharacterInfo characterInfo;
     private SpriteRenderer spriteRenderer;
 
     void Start() {
