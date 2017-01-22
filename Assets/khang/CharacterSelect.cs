@@ -4,19 +4,28 @@ using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour {
     public Sprite[] characterImages;
-    //need to map each player to 1 index in this (list? map?)
-    //stores the index for which character the player has selected
 
     // var for storing the currently selected character
     private int selectedCharacter = 0;
 	// Use this for initialization
 	void Start () {
-		//initialize player 1 or whichever players ready up
-        //how do we detect when another player has entered the game?
+        GameVars.PlayerCount = 0;
 	}
 
     void Update() {
-        //get input from p1 keys
+        if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") == 1)
+        {
+            ScrollUp();
+        }
+        else if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") == -1)
+        {
+            ScrollDown();
+        }
+
+        if (Input.GetButtonDown("Submit"))
+        {
+            Progress();
+        }
     }
  
     public void ScrollUp()
