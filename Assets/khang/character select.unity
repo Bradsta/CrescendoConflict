@@ -143,6 +143,7 @@ MonoBehaviour:
   - {fileID: 21300040, guid: e3fdb22b2891cb14191ac4eec7e6ec9d, type: 3}
   - {fileID: 21300038, guid: e3fdb22b2891cb14191ac4eec7e6ec9d, type: 3}
   - {fileID: 21300032, guid: e3fdb22b2891cb14191ac4eec7e6ec9d, type: 3}
+  xOutImage: {fileID: 21300000, guid: 8e4a7ff3bf6ba0b468db2c1c5a3bad0c, type: 3}
 --- !u!1 &75927504
 GameObject:
   m_ObjectHideFlags: 0
