@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
+  spawnPositions: []
 --- !u!1001 &1334819474
 Prefab:
   m_ObjectHideFlags: 0

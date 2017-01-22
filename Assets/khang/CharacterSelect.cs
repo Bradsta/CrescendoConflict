@@ -56,6 +56,7 @@ public class CharacterSelect : MonoBehaviour {
         GameVars.Avatars[GameVars.PlayerCount] = (GameVars.Avatar)selectedCharacter;
         if (GameVars.PlayerCount <= transform.childCount) { //use number of frames as indication of max number of characters 
             ++GameVars.PlayerCount;
+            ScrollDown();
             updateDisp();
         }else {
             //if out of frames, begin games

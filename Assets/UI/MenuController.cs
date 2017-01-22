@@ -53,6 +53,12 @@ public class MenuController : MonoBehaviour {
         //settings.GetComponent<SettingsController>().UpdateSettings(); //requires settings controller on settings parent object
         //TODO: go to the scene, once it exists
     }
+
+    public void ExitGame() {
+        //exit the game
+        //Debug.Log("Quit the Game!");
+        Application.Quit();
+    }
     
 
 }
