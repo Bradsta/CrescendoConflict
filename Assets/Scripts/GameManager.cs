@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour {
 
         if (winner && (Input.GetButtonDown("Fire_P1") || Input.GetButtonDown("Fire_P2")))
         {
-            SceneManager.LoadScene("Main Menu");
+            SceneManager.LoadScene("MainMenu");
         }
     }
 
