@@ -16,20 +16,21 @@ public class HudController : MonoBehaviour {
 	void Start () {
         //load prefabs
         Vector2 pos = dispBasePos;
-        int pc = GameVars.PlayerCount;
         GameManager gm = FindObjectOfType<GameManager>();
-        for (int i = 0; i < pc; ++i) {
+        for (int i = 0; i < gm.players.Count-1; ++i) {
             //see Player Status Disp for comments, because its the same $T^)# algorithm
-            Debug.Log(i);
+            Debug.Log(i.ToString() + " : " + gm.players.Count.ToString());
             GameObject go = Instantiate(psdPrefab);
             go.transform.SetParent(transform);
             go.transform.localPosition = pos;
+            Debug.Log(gm.players[i+1]);
+            Debug.Log(go);
             go.transform.GetComponent<PlayerStatusDisp>().Init(emptyHealthImage,
                                                                healthPrefab,
                                                                portraits[(int)GameVars.Avatars[i]],
                                                                GameVars.Colors[i], 
                                                                4, //NUMBER OF NOTES HARDCODED HERE
-                                                               gm.players[i].GetComponent<PlayerHealth>()); 
+                                                               gm.players[i+1].GetComponent<PlayerHealth>()); 
             pos += dispPosStep;
         }
 		
