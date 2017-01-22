@@ -365,13 +365,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'This game was made by:
-
-    A bunch of Loosers
-
-    up way too late
-
-    in DBH'
+  m_Text: "Vincent Chang        Sound Designer/Composer, Programmer\r\nAJ Gonzalez
+    \         Artist\r\nBrad Guerrero        Programmer\r\nIttai Mann           Programmer\r\nKhang
+    Tran           Producer, Programmer\r\nRyan N. Ward         Designer, Programmer\r\n"
 --- !u!222 &286929409
 CanvasRenderer:
   m_ObjectHideFlags: 0
