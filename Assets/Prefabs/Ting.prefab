@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wave: {fileID: 1402207269714548, guid: a4158b7f1312a2448b0649e9fbe9a8a9, type: 2}
   ShootClipName: drums shoot wave 1
+  ClipOnHit: drums damaged 1
 --- !u!212 &212548419934019798
 SpriteRenderer:
   m_ObjectHideFlags: 1

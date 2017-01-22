@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wave: {fileID: 1291358795480250, guid: bb283ed6a0467a64b973fba4d2a7fe3f, type: 2}
   ShootClipName: cello shoot wave 1
+  ClipOnHit: cello damaged 1
 --- !u!212 &212085766686478350
 SpriteRenderer:
   m_ObjectHideFlags: 1
