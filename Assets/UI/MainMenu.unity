@@ -444,7 +444,7 @@ MonoBehaviour:
     aim and space to shoot.
 
 
-    The other uses WASD to move, ''C'' and ''V'' to move, and lef shit to shoot.
+    The other uses WASD to move, ''C'' and ''V'' to rotate, and left shift to shoot.
 
 
     Controllers use left stick to move, right stick to aim, and right bumper to shoot.
