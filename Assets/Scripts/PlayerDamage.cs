@@ -7,15 +7,26 @@ public class PlayerDamage : MonoBehaviour
     private GameManager gameManager;
     private SfxPlayer sfx;
 
+    private List<GameObject> hits = new List<GameObject>();
+
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         sfx = FindObjectOfType<SfxPlayer>();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (hits.Contains(other.gameObject))
+        {
+            hits.Remove(other.gameObject);
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other != null
+            && !hits.Contains(other.gameObject)
             && other.gameObject.activeSelf
             && other.GetComponent<Player>() != null)
         {
@@ -37,6 +48,8 @@ public class PlayerDamage : MonoBehaviour
                     playerHealth.gameObject.SetActive(false);
                 }
             }
+
+            hits.Add(other.gameObject);
         }
     }
 
