@@ -56,10 +56,33 @@ public class PlayerDamage : MonoBehaviour
 
                         Destroy(boom, 1);
                     }
+                } else if (ci != null)
+                {
+                    StartCoroutine(BlinkingRed(ci.gameObject));
                 }
             }
 
             hits.Add(other.gameObject);
+        }
+    }
+
+    IEnumerator BlinkingRed(GameObject character)
+    {
+        SpriteRenderer sr = character.GetComponent<SpriteRenderer>();
+
+        if (sr != null)
+        {
+            for (int i=0; i<5; i++)
+            {
+                if (i % 2 == 0)
+                    sr.color = Color.red;
+                else
+                    sr.color = Color.white;
+
+                yield return new WaitForSeconds(.1f);
+            }
+
+            sr.color = Color.white;
         }
     }
 
