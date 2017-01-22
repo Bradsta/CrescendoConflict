@@ -14,15 +14,19 @@ public class CharacterSelect : MonoBehaviour {
     private bool scrolledUp = false;
     private bool gameJamStrats = false;
 
+    private SfxPlayer sfx;
+
 	// Use this for initialization
 	void Start () {
         GameVars.PlayerCount = 0;
+        sfx = GameObject.FindObjectOfType<SfxPlayer>();
+        sfx.PlaySoundEffect("menu select boop 1");
 	}
 
     void Update() {
         if (!gameJamStrats)
         {
-            ScrollDown();
+            ScrollDown(false);
             gameJamStrats = true;
         }
 
@@ -55,16 +59,17 @@ public class CharacterSelect : MonoBehaviour {
         updateDisp();
     }
 
-    public void ScrollDown()
+    public void ScrollDown(bool boop = true)
     {
         selectedCharacter++;
         //if it's about to be greater than the character list size, go back to the beginning
         if (selectedCharacter > characterImages.Length - 1)
             selectedCharacter = 0;
-        updateDisp();
+        updateDisp(boop);
     }
 
-    void updateDisp() {
+    void updateDisp(bool boop = true) {
+        if(boop) sfx.PlaySoundEffect("menu move boop 1");
         transform.GetChild(GameVars.PlayerCount).GetComponent<CharacterSelectFrame>().SetDisp(legalPick(selectedCharacter)? characterImages[selectedCharacter] : xOutImage);
     } 
 
@@ -74,8 +79,9 @@ public class CharacterSelect : MonoBehaviour {
         GameVars.Avatars[GameVars.PlayerCount] = (GameVars.Avatar)selectedCharacter;
         if (GameVars.PlayerCount < transform.childCount-1) { //use number of frames as indication of max number of characters 
             ++GameVars.PlayerCount;
-            ScrollDown();
-            updateDisp();
+            ScrollDown(false);
+            //updateDisp(false);
+            sfx.PlaySoundEffect("menu select boop 1");
         } else {
             //if out of frames, begin games
             BeginGame();

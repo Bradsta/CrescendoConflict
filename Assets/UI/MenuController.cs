@@ -12,6 +12,8 @@ public class MenuController : MonoBehaviour {
     private GameObject logo;
     private GameObject controls;
 
+    private SfxPlayer sfx;
+
     void Start() {
         //plug in components
         //NOTE: because uses Find, do not rename game objects
@@ -20,8 +22,9 @@ public class MenuController : MonoBehaviour {
         settings = GameObject.Find("Settings");
         logo = GameObject.Find("Logo");
         controls = GameObject.Find("Controls");
+        sfx = GameObject.FindObjectOfType<SfxPlayer>();
         //set to default state
-        GotoState(State.MAIN);
+        GotoState(State.MAIN, false);
     }
 
     private void Update() {
@@ -35,7 +38,7 @@ public class MenuController : MonoBehaviour {
         GotoState((State)i);
     }
 
-    public void GotoState(State state) {
+    public void GotoState(State state, bool boop = true) {
         //change settings to display the given state
         { //so that don't keep mScale around longer than need to
             float mScale = (state == State.MAIN) ? 1 : 0.75f;
@@ -48,6 +51,7 @@ public class MenuController : MonoBehaviour {
         settings.SetActive(state == State.SETTINGS);
         logo.SetActive(state == State.MAIN);
         controls.SetActive(state == State.CONTROLS);
+        if(boop) sfx.PlaySoundEffect("menu select boop 1");
     }
 
     public void BeginGame() {
