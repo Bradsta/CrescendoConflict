@@ -10,9 +10,9 @@ public class CharacterSelect : MonoBehaviour {
     // var for storing the currently selected character
     private int selectedCharacter = 0;
 	// Use this for initialization
-
 	void Start () {
-        GameVars.PlayerCount = 0; 
+		//initialize player 1 or whichever players ready up
+        //how do we detect when another player has entered the game?
 	}
 
     void Update() {

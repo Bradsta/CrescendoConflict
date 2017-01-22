@@ -17,7 +17,7 @@ public class HudController : MonoBehaviour {
         //load prefabs
         Vector2 pos = dispBasePos;
         int pc = GameVars.PlayerCount;
-        GameManager gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        GameManager gm = FindObjectOfType<GameManager>();
         for (int i = 0; i < pc; ++i) {
             //see Player Status Disp for comments, because its the same $T^)# algorithm
             Debug.Log(i);
