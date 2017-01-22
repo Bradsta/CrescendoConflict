@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
 
     private bool winner = false;
     private bool playedVictory = false;
+    private float winTime;
 
     private SfxPlayer sfx;
     private MusicPlayer music;
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (players.Count == 2)
+        if (players.Count == 2 && !winner)
         {
             victoryPrefab.gameObject.SetActive(true);
             victoryPrefab.Init(players[1].GetComponent<Player>().characterInfo.CharacterIndex);
@@ -43,9 +44,10 @@ public class GameManager : MonoBehaviour {
             music.StopMusic();
             sfx.PlaySoundEffect("victory 1");
             playedVictory = true;
+            winTime = Time.time;
         }
 
-        if (winner && (Input.GetButtonDown("Fire_P1") || Input.GetButtonDown("Fire_P2")))
+        if (winner && (Time.time - winTime > 2) && (Input.GetButtonDown("Fire_P1") || Input.GetButtonDown("Fire_P2")))
         {
             SceneManager.LoadScene("MainMenu");
         }
