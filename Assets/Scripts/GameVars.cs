@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
 static class GameVars {
-    //stores game values that need to be presistant between scenes
+    //stores game values that need to be persistent between scenes
 
-    public enum Avitar { DOM, TING, PLINK, MANA }
+    public enum Avatar { DOM, TING, PLINK, MANA }
 
     public static int PlayerCount = 4;
-    public static Avitar[] Avitars = { Avitar.DOM, Avitar.TING, Avitar.PLINK, Avitar.MANA };
+    public static Avatar[] Avatars = { Avatar.DOM, Avatar.TING, Avatar.PLINK, Avatar.MANA };
     //COLORS HARDCODED HERE!!!!!!!!!!!!!!
     readonly public static Color[] Colors = { new Color(68/255f, 137/255f, 26/255f),
                                      new Color(190/255f, 38/255f, 51/255f),

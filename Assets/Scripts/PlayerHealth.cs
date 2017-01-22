@@ -21,5 +21,9 @@ public class PlayerHealth : MonoBehaviour {
     public void TakeDamage (int amount)
     {
         health -= amount;
+        if (IsDead)
+        {
+            // kill player??
+        }
     }
 }
