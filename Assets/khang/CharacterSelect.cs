@@ -43,7 +43,7 @@ public class CharacterSelect : MonoBehaviour {
             Progress();
         }
 
-        if (Input.GetAxisRaw("Vertical_P1") == 0 || Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) == 0)
+        if (Input.GetAxisRaw("Vertical_P1") == 0 && Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) == 0)
         {
             scrolledDown = false;
             scrolledUp = false;
