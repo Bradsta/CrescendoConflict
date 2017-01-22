@@ -8,28 +8,39 @@ public class CharacterSelect : MonoBehaviour {
 
     // var for storing the currently selected character
     private int selectedCharacter = 0;
+
+    private bool scrolledDown = false;
+    private bool scrolledUp = false;
+
 	// Use this for initialization
 	void Start () {
         GameVars.PlayerCount = 0;
 	}
 
     void Update() {
-        if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") == 1)
+        if (scrolledUp == false && Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) == 1)
         {
             ScrollUp();
-        }
-        else if (Input.GetButtonDown("Vertical") && Input.GetAxisRaw("Vertical") == -1)
+            scrolledUp = true;
+        } else if (scrolledDown == false && Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) == -1)
         {
             ScrollDown();
-        }
-        if (Input.GetButtonDown("Submit"))
+            scrolledDown = true;
+        } else if (Input.GetButtonDown("Fire_P" + (GameVars.PlayerCount + 1)))
         {
             Progress();
+        }
+
+        if (Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) == 0)
+        {
+            scrolledDown = false;
+            scrolledUp = false;
         }
     }
  
     public void ScrollUp()
     {
+        Debug.Log("UP");
         selectedCharacter--;
         //if it's about to hit less than 0, go back to the end
         if (selectedCharacter < 0)
@@ -47,7 +58,7 @@ public class CharacterSelect : MonoBehaviour {
     }
 
     void updateDisp() {
-        transform.GetChild(GameVars.PlayerCount).GetComponent<CharacterSelectFrame>().SetDisp( legalPick(selectedCharacter)? characterImages[selectedCharacter] : xOutImage);
+        transform.GetChild(GameVars.PlayerCount).GetComponent<CharacterSelectFrame>().SetDisp(legalPick(selectedCharacter)? characterImages[selectedCharacter] : xOutImage);
     } 
 
     public void Progress() {
@@ -75,6 +86,6 @@ public class CharacterSelect : MonoBehaviour {
     }
 
     public void BeginGame() {
-        //begin the game
+        
     }
 }
