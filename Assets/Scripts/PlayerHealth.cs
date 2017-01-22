@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
 
-    public int health = 100;
+    public int health = 200;
 
     public void TakeDamage(int amount)
     {
