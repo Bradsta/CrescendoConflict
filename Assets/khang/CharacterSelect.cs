@@ -40,7 +40,6 @@ public class CharacterSelect : MonoBehaviour {
  
     public void ScrollUp()
     {
-        Debug.Log("UP");
         selectedCharacter--;
         //if it's about to hit less than 0, go back to the end
         if (selectedCharacter < 0)
