@@ -301,9 +301,9 @@ InputManager:
     positiveButton: escape
     altNegativeButton: 
     altPositiveButton: joystick button 1
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
+    gravity: 1
+    dead: 0.2
+    sensitivity: 1
     snap: 0
     invert: 0
     type: 2
@@ -317,11 +317,11 @@ InputManager:
     positiveButton: escape
     altNegativeButton: 
     altPositiveButton: joystick button 1
-    gravity: 1000
-    dead: 1.91
-    sensitivity: 1000
+    gravity: 1
+    dead: 0.2
+    sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 4
     joyNum: 1

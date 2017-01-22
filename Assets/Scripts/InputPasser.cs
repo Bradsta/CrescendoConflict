@@ -18,6 +18,21 @@ public class InputPasser : MonoBehaviour {
 	void FixedUpdate () {
 
         gameObject.GetComponent<Player>().move(Input.GetAxisRaw(playerHorz), Input.GetAxisRaw(playerVert));
+
+        Vector2 v = new Vector2(Input.GetAxisRaw("rotationx"), Input.GetAxisRaw("rotationy"));
+
+        if (v != Vector2.zero)
+        {
+            float angle = Vector2.Angle(Vector2.up, v);
+
+            if (v.x > 0)
+            {
+                angle *= -1;
+            }
+
+            gameObject.GetComponent<Player>().RotateStick(angle);
+        }
+
         if (Input.GetKey("o")) 
             gameObject.GetComponent<Player>().Rotate(rotate_speed);
         if(Input.GetKey("p"))

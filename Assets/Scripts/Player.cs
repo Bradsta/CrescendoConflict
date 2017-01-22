@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
     private Animator animator;
     private Rigidbody2D player;
     private Transform reticle;
+    private Transform src;
     private float lastShot = -1;
 
     private byte state = 0; //Idle
@@ -23,7 +24,8 @@ public class Player : MonoBehaviour {
         player = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        reticle = transform.Find("Reticle");
+        src = transform.Find("Source");
+        reticle = src.Find("Reticle");
     }
 
     public void move(float directionx,float directiony)
@@ -50,7 +52,12 @@ public class Player : MonoBehaviour {
 
     public void Rotate(int rotate_speed)
     {
-        reticle.RotateAround(transform.position, transform.forward, rotate_speed * 20 * Time.deltaTime);
+        src.Rotate(0, 0, rotate_speed * 20 * Time.deltaTime);
+    }
+
+    public void RotateStick(float target)
+    {
+        src.rotation = Quaternion.AngleAxis(target, Vector3.forward);
     }
 
     public void Shoot()
