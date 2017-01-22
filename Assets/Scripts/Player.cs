@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
         {
             sfxPlayer.PlaySoundEffect(ShootClipName);
 
-            Instantiate(Wave, reticle.position, Quaternion.Euler(0, 0, reticle.rotation.eulerAngles.z));
+            Instantiate(Wave, reticle.position + (reticle.up / 10f), Quaternion.Euler(0, 0, reticle.rotation.eulerAngles.z));
             reticle.GetComponent<Animator>().Play("Charging", 0, 0);
             lastShot = Time.time;
         }
