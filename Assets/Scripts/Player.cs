@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
     
     public GameObject Wave;
     public string ShootClipName;
+    public PlayerNumber PlayerNumber = PlayerNumber.PLAYER_1;
 
     private float Speed = 2.56f;
 
