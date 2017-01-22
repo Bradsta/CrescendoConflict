@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelect : MonoBehaviour {
     public Sprite[] characterImages;
@@ -18,11 +19,11 @@ public class CharacterSelect : MonoBehaviour {
 	}
 
     void Update() {
-        if (scrolledUp == false && Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) == 1)
+        if (scrolledUp == false && Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) > 0.8f)
         {
             ScrollUp();
             scrolledUp = true;
-        } else if (scrolledDown == false && Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) == -1)
+        } else if (scrolledDown == false && Input.GetAxisRaw("Vertical_P" + (GameVars.PlayerCount + 1)) < -0.8f)
         {
             ScrollDown();
             scrolledDown = true;
@@ -64,11 +65,11 @@ public class CharacterSelect : MonoBehaviour {
         //save the current character and move on
         if (!legalPick(selectedCharacter)) return; //DO NOT RUN THE FUNCTION IF NOT LEGAL PICK
         GameVars.Avatars[GameVars.PlayerCount] = (GameVars.Avatar)selectedCharacter;
-        if (GameVars.PlayerCount <= transform.childCount) { //use number of frames as indication of max number of characters 
+        if (GameVars.PlayerCount < transform.childCount-1) { //use number of frames as indication of max number of characters 
             ++GameVars.PlayerCount;
             ScrollDown();
             updateDisp();
-        }else {
+        } else {
             //if out of frames, begin games
             BeginGame();
         }
@@ -85,6 +86,7 @@ public class CharacterSelect : MonoBehaviour {
     }
 
     public void BeginGame() {
-        
+        Debug.Log("FAK");
+        SceneManager.LoadScene("Game");
     }
 }
