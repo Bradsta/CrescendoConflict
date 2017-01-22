@@ -29,6 +29,10 @@ public class WaveMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D coll)
     {
+        if (coll.collider.transform.tag == "Door")
+        {
+            Destroy(gameObject);
+        }
         Vector2 reflection = Vector2.Reflect(direction, coll.contacts[0].normal);
 
         transform.up = reflection;

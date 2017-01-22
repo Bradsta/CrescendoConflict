@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
     
-    public GameObject Wave;
-    public string ShootClipName;
+    public PlayerNumber PlayerNumber = PlayerNumber.PLAYER_1;
+    [HideInInspector]
+    public int playerNum = 1;
 
     private float Speed = 2.56f;
 
@@ -18,14 +19,35 @@ public class Player : MonoBehaviour {
     private byte state = 0; //Idle
 
     private SfxPlayer sfxPlayer;
+    private CharacterInfo characterInfo;
 
     void Start() {
         sfxPlayer = FindObjectOfType<SfxPlayer>();
         player = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
 
         src = transform.Find("Source");
         reticle = src.Find("Reticle");
+
+        characterInfo = gameObject.GetComponentInChildren<CharacterInfo>();
+        animator = characterInfo.gameObject.GetComponent<Animator>();
+
+        switch (PlayerNumber)
+        {
+            case PlayerNumber.PLAYER_1:
+                playerNum = 1;
+                break;
+            case PlayerNumber.PLAYER_2:
+                playerNum = 2;
+                break;
+            case PlayerNumber.PLAYER_3:
+                playerNum = 3;
+                break;
+            case PlayerNumber.PLAYER_4:
+                playerNum = 4;
+                break;
+            case PlayerNumber.PLAYER_N: //Oh god ryan why
+                break;
+        }
     }
 
     public void move(float directionx,float directiony)
@@ -64,9 +86,9 @@ public class Player : MonoBehaviour {
     {
         if (lastShot == -1 || (Time.time - lastShot) > 1)
         {
-            sfxPlayer.PlaySoundEffect(ShootClipName);
+            sfxPlayer.PlaySoundEffect(characterInfo.ShootClipName);
 
-            Instantiate(Wave, reticle.position + (reticle.up / 10f), Quaternion.Euler(0, 0, reticle.rotation.eulerAngles.z));
+            Instantiate(characterInfo.Wave, reticle.position + (reticle.up / 10f), Quaternion.Euler(0, 0, reticle.rotation.eulerAngles.z));
             reticle.GetComponent<Animator>().Play("Charging", 0, 0);
             lastShot = Time.time;
         }
