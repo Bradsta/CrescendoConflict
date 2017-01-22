@@ -5,8 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour {
     
     public GameObject Wave;
-    [Tooltip("In units per second. Default is 1.28 #MagicNumber.")]
-    public float Speed = 1.28f;
+    public string ShootClipName;
+
+    private float Speed = 2.56f;
 
     private Animator animator;
     private Rigidbody2D player;
@@ -15,7 +16,10 @@ public class Player : MonoBehaviour {
 
     private byte state = 0; //Idle
 
+    private SfxPlayer sfxPlayer;
+
     void Start() {
+        sfxPlayer = FindObjectOfType<SfxPlayer>();
         player = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -53,6 +57,8 @@ public class Player : MonoBehaviour {
     {
         if (lastShot == -1 || (Time.time - lastShot) > 1)
         {
+            sfxPlayer.PlaySoundEffect(ShootClipName);
+
             Instantiate(Wave, reticle.position, Quaternion.Euler(0, 0, reticle.rotation.eulerAngles.z));
             reticle.GetComponent<Animator>().Play("Charging", 0, 0);
             lastShot = Time.time;

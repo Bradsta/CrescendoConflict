@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Wave: {fileID: 1402207269714548, guid: a4158b7f1312a2448b0649e9fbe9a8a9, type: 2}
-  Speed: 1.28
+  ShootClipName: cello shoot wave 1
 --- !u!114 &114935169425085618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,7 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a487d4bf2c7a9e04e8f068f535c9e96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotate_speed: 10
   playerHorz: Horizontal
   playerVert: Vertical
 --- !u!212 &212665835772474220
