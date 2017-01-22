@@ -9,9 +9,9 @@ public class CharacterSelect : MonoBehaviour {
     // var for storing the currently selected character
     public int selectedCharacter = 0;
 	// Use this for initialization
+
 	void Start () {
-		//initialize player 1 or whichever players ready up
-        //how do we detect when another player has entered the game?
+        GameVars.PlayerCount = 0; 
 	}
 	
 	// Update is called once per frame
@@ -33,5 +33,10 @@ public class CharacterSelect : MonoBehaviour {
         //if it's about to be greater than the character list size, go back to the beginning
         if (selectedCharacter + 1 > characterImages.Length - 1)
             selectedCharacter = 0;
+    }
+
+    void Progress() {
+        //save the current player and move on
+        ++GameVars.PlayerCount;
     }
 }

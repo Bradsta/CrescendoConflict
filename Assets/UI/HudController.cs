@@ -26,7 +26,7 @@ public class HudController : MonoBehaviour {
             go.transform.localPosition = pos;
             go.transform.GetComponent<PlayerStatusDisp>().Init(emptyHealthImage,
                                                                healthPrefab,
-                                                               portraits[(int)GameVars.Avitars[i]],
+                                                               portraits[(int)GameVars.Avatars[i]],
                                                                GameVars.Colors[i], 
                                                                4, //NUMBER OF NOTES HARDCODED HERE
                                                                gm.players[i].GetComponent<PlayerHealth>()); 
