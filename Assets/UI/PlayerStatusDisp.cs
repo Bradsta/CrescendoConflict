@@ -57,24 +57,25 @@ public class PlayerStatusDisp : MonoBehaviour {
 
         if (lastHealth != player.health) //player took damage
         {
-            int index = 0;
+            int index = -1;
             switch (player.health)
             {
-                case 75:
+                case 150:
                     index = 3;
                     break;
-                case 50:
+                case 100:
                     index = 2;
                     break;
-                case 25:
+                case 50:
                     index = 1;
                     break;
                 case 0:
                     index = 0;
                     break;
             }
-
-            health[index].sprite = emptyHealth;
+            if (index >= 0) {
+                health[index].sprite = emptyHealth;
+            }
             lastHealth = player.health;
             waveAnimator.Run();
         }
