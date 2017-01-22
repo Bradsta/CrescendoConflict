@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
 
-    int health = 100;
+    public int health = 100;
     public int Health {
         get {
             return health;
@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour {
         }
     }
 
-    public void TakeDamage (int amount)
+    public void TakeDamage(int amount)
     {
         health -= amount;
         if (IsDead)

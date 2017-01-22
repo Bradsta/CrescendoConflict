@@ -12,7 +12,7 @@ public class bullet_move : MonoBehaviour {
     void Start () {
         rb2d.GetComponent<Rigidbody2D>();
         gun = GameObject.FindGameObjectWithTag("GUN").GetComponent<Rigidbody2D>();
-        //Vector2 gundirection = gun.transform.right;
+        Vector2 gundirection = gun.transform.right;
         //rb2d.transform.Translate(gundirection *Time.deltaTime);
 
     }

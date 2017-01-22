@@ -5,7 +5,7 @@ static class GameVars {
 
     public enum Avatar { DOM, TING, PLINK, MANA }
 
-    public static int PlayerCount = 4;
+    public static int PlayerCount = 1;
     public static Avatar[] Avatars = { Avatar.DOM, Avatar.TING, Avatar.PLINK, Avatar.MANA };
     //COLORS HARDCODED HERE!!!!!!!!!!!!!!
     readonly public static Color[] Colors = { new Color(68/255f, 137/255f, 26/255f),
