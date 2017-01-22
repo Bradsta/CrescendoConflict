@@ -5,7 +5,7 @@ using UnityEngine;
 public class inputHandler : MonoBehaviour {
 
     Rigidbody2D player;
-    Rigidbody2D gun;
+    public Transform gun;
     public GameObject bullet;
 
     public Vector2 velocity;
@@ -13,19 +13,19 @@ public class inputHandler : MonoBehaviour {
     // Use this for initialization
     void Start() {
         player = gameObject.GetComponent<Rigidbody2D>();
-        gun = GameObject.FindGameObjectWithTag("GUN").GetComponent<Rigidbody2D>();
+        //gun = GameObject.FindGameObjectWithTag("GUN").GetComponent<Rigidbody2D>();
     }
 
 
     public void move(float directionx,float directiony)
     {
         player.MovePosition(new Vector2(player.position.x + velocity.x * directionx * Time.fixedDeltaTime, player.position.y + velocity.y *directiony * Time.fixedDeltaTime));
-        gun.MovePosition(new Vector2(gun.position.x + velocity.x * directionx * Time.fixedDeltaTime, gun.position.y + velocity.y * directiony * Time.fixedDeltaTime));
+        //gun.MovePosition(new Vector2(gun.position.x + velocity.x * directionx * Time.fixedDeltaTime, gun.position.y + velocity.y * directiony * Time.fixedDeltaTime));
     }
 
     public void Rotate(float rotate_speed)
     {
-        gun.transform.RotateAround(player.transform.position, player.transform.forward, rotate_speed*20 * Time.deltaTime);
+        gun.transform.RotateAround(player.transform.position, player.transform.forward, rotate_speed*10);
         //gun.GetComponent<Rigidbody2D>().MoveRotation(gun.GetComponent<Rigidbody2D>().rotation+ rotate_speed);
        // gun.GetComponent<Rigidbody2D>().
     }
@@ -33,27 +33,33 @@ public class inputHandler : MonoBehaviour {
 
     public void RotateStick(float target)
     {
-      
-        float OriginX =gun.transform.position.x;
-        float OriginY =gun.transform.position.y; //
-        float radius = Mathf.Sqrt(Mathf.Pow(OriginX,2)+Mathf.Pow(OriginY,2));
 
-        float TargetX =(OriginX + radius * Mathf.Cos(target)*Mathf.Deg2Rad);
-        float TargetY =(OriginY + radius * Mathf.Sin(target) * Mathf.Deg2Rad);
-        Debug.Log("Target is " + target);
-        //Debug.Log("originX squared = "+Mathf.Pow(OriginX, 2));
-        //Debug.Log("originY squared = " + Mathf.Pow(OriginY, 2));
+        Debug.Log(target);
+
+        //Debug.Log(Input.GetAxis("rotationx"));
+        float rad_target = target * Mathf.Deg2Rad;
+
+        float OriginX = player.transform.position.x;//gun.transform.localPosition.x;
+        float OriginY = player.transform.position.y; //gun.transform.localPosition.y; //
+        float radius = 1f; //Mathf.Sqrt(Mathf.Pow(OriginX,2)+Mathf.Pow(OriginY,2));
+
+        float TargetX = (OriginX + radius * (Mathf.Cos(rad_target)));//*Mathf.Rad2Deg) );
+        float TargetY = (OriginY + radius * (Mathf.Sin(rad_target)));//*Mathf.Rad2Deg));
+
+        //gun.MovePosition(new Vector2(TargetX,TargetY));
+        gun.rotation= Quaternion.AngleAxis(target, Vector3.forward);
+
+
+        //Debug.Log("Target is " + rad_target);
+        //Debug.Log("originX squared = "+OriginX);
+        //Debug.Log("originY squared = " + OriginY);
         //Debug.Log("xy squared combined = "+ Mathf.Pow(OriginX, 2) + Mathf.Pow(OriginY, 2));
         //Debug.Log("radius =" + radius);
-        Debug.Log("target x is = " + TargetX);
-        Debug.Log("target y is = " + TargetY);
-        gun.MovePosition(new Vector2(TargetX, TargetY));
-        // Vector3 origin = gun.transform.position ;
-          //gun.transform.position = Vector3.Slerp(new Vector3(OriginX,OriginY,0), new Vector3(TargetX,TargetY,0),1f);
-        //Quaternion NewRotation = new Quaternion(0, 0, target,0); 
-        //gun.transform.rotation = Quaternion.Slerp(transform.rotation, NewRotation, Time.deltaTime * 3f);
-        //gun.GetComponent<Rigidbody2D>().MoveRotation(gun.GetComponent<Rigidbody2D>().rotation+ rotate_speed);
-        // gun.GetComponent<Rigidbody2D>().
+        //Debug.Log("target x is = " + TargetX);
+        //Debug.Log("target y is = " + TargetY);
+        //Debug.Log("SHOFIHDSOI");
+
+
     }
     public void shoot()
     {
