@@ -39,11 +39,38 @@ public class PlayerStatusDisp : MonoBehaviour {
             pos += healthPosStep;
         }
         healthDisplayed = health;
+
+        this.player = player;
+        this.emptyHealth = emptyHealth;
     }
 
+    int lastHealth = -1;
+    
     private void Update() {
-        for(; healthDisplayed > 1+(health.Count*player.Health/100); --healthDisplayed) {
-            health[healthDisplayed].sprite = emptyHealth; 
+        if (lastHealth == -1)
+            lastHealth = player.health;
+
+        if (lastHealth != player.health) //player took damage
+        {
+            int index = 0;
+            switch (player.health)
+            {
+                case 75:
+                    index = 3;
+                    break;
+                case 50:
+                    index = 2;
+                    break;
+                case 25:
+                    index = 1;
+                    break;
+                case 0:
+                    index = 0;
+                    break;
+            }
+
+            health[index].sprite = emptyHealth;
+            lastHealth = player.health;
         }
     }
 
