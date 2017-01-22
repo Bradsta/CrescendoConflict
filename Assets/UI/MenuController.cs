@@ -4,12 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
-    public enum State { MAIN, CREDITS, SETTINGS }
+    public enum State { MAIN, CREDITS, SETTINGS, CONTROLS }
 
     private GameObject menu;
     private GameObject credits;
     private GameObject settings;
     private GameObject logo;
+    private GameObject controls;
 
     void Start() {
         //plug in components
@@ -18,6 +19,7 @@ public class MenuController : MonoBehaviour {
         credits = GameObject.Find("Credits");
         settings = GameObject.Find("Settings");
         logo = GameObject.Find("Logo");
+        controls = GameObject.Find("Controls");
         //set to default state
         GotoState(State.MAIN);
     }
@@ -45,6 +47,7 @@ public class MenuController : MonoBehaviour {
         credits.SetActive(state == State.CREDITS);
         settings.SetActive(state == State.SETTINGS);
         logo.SetActive(state == State.MAIN);
+        controls.SetActive(state == State.CONTROLS);
     }
 
     public void BeginGame() {
