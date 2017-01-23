@@ -7,6 +7,15 @@ The Automaton Orchestra had lost its vogue, it seemed. To the trash heap it woul
 
 This game was created for the 2017 Global Game Jam. The theme was "Waves".
 
+# Credits
+Vincent Chang - Musician, Programmer
+AJ Gonzalez - Artist, Video Editor
+Brad Guerrero - Programmer
+Ittai Mann - Programmer
+Khang Tran - Producer, Programmer
+Ryan N. Ward - Designer, Programmer
+
+# Images
 <p align="center">
   <img src="http://ggj.s3.amazonaws.com/styles/game_content__wide/s3/games/screenshots/character_select.png?itok=_-0-Ndi9" width="800"/>
   <img src="http://ggj.s3.amazonaws.com/styles/game_content__wide/s3/games/screenshots/in-game_4.png?itok=X1diLxBa" width="800"/>
