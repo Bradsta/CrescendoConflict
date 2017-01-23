@@ -28,6 +28,6 @@ Ryan N. Ward - Designer, Programmer
 </p>
 
 # Video
-Click to view!
+
 [![Click to view](http://ggj.s3.amazonaws.com/styles/game_sidebar__wide/s3/game/featured_image/title_screen_31.png?itok=w0Zz4tqo)](https://www.youtube.com/watch?v=H-As78yWbFE)
 
