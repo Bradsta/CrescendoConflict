@@ -9,10 +9,15 @@ This game was created for the 2017 Global Game Jam. The theme was "Waves".
 
 # Credits
 Vincent Chang - Musician, Programmer
+
 AJ Gonzalez - Artist, Video Editor
+
 Brad Guerrero - Programmer
+
 Ittai Mann - Programmer
+
 Khang Tran - Producer, Programmer
+
 Ryan N. Ward - Designer, Programmer
 
 # Images
