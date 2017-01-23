@@ -26,3 +26,6 @@ Ryan N. Ward - Designer, Programmer
   <img src="http://ggj.s3.amazonaws.com/styles/game_content__wide/s3/games/screenshots/in-game_4.png?itok=X1diLxBa" width="800"/>
   <img src="http://ggj.s3.amazonaws.com/styles/game_content__wide/s3/games/screenshots/victory_3.png?itok=yFbUvtws" width="800"/>
 </p>
+
+# Video
+[![Click to view](http://img.youtube.com/vi/H-As78yWbFE/0.jpg)](https://www.youtube.com/watch?v=H-As78yWbFE)
